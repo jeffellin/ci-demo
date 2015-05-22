@@ -22,17 +22,39 @@ apply plugin: 'idea'
 apply plugin: 'spring-boot' 
 apply plugin: 'io.spring.dependency-management' 
 apply plugin: 'war'
-
+apply plugin: 'maven'
 
 war {
     baseName = 'ci-demo'
-    version = '0.0.1-SNAPSHOT'
+    version = 'demo-SNAPSHOT'
 }
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
+}
+
+allprojects {
+	group = 'com.tamr.field'
+	version = 'demo-SNAPSHOT'
+
+	plugins.withType(JavaPlugin) {
+		sourceCompatibility = 1.8
+		targetCompatibility = 1.8
+	}
+}
+
+install {
+    repositories.mavenInstaller {
+        pom.project {
+          parent { 
+            groupId 'org.springframework.boot'
+            artifactId 'spring-boot-starter-parent'
+            version "${springBootVersion}"
+          }
+        }
+    }
 }
 
 configurations {
