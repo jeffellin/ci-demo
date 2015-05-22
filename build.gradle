@@ -26,7 +26,7 @@ apply plugin: 'maven'
 
 war {
     baseName = 'ci-demo'
-    version = 'demo-SNAPSHOT'
+    version = version
 }
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -37,7 +37,7 @@ repositories {
 
 allprojects {
 	group = 'com.tamr.field'
-	version = 'demo-SNAPSHOT'
+	version = version
 
 	plugins.withType(JavaPlugin) {
 		sourceCompatibility = 1.8
