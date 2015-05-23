@@ -23,6 +23,7 @@ apply plugin: 'spring-boot'
 apply plugin: 'io.spring.dependency-management' 
 apply plugin: 'war'
 apply plugin: 'maven'
+apply plugin: 'maven-publish'
 
 war {
     baseName = 'ci-demo'
